@@ -11,6 +11,9 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
+    //iplementeler den önce burada interfacedeki fonksiyonları detaylandırıyorduk.
+    //ICarDal ın durma sebebi DTO joinleme vs olursa bu kısmı ilgilendiren fonksiyonları
+    //ICarDal kısmına yazıp buraya iplemente edebiliriz.
     public class EfCarDal : EfEntityRepositoryBase<Car, RentCarContext>, ICarDal
     {
         public List<CarDetailDto> GetCarDetails()

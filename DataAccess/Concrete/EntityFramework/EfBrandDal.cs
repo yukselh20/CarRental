@@ -8,6 +8,9 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework
 {
+    //iplementeler den önce burada interfacedeki fonksiyonları detaylandırıyorduk.
+    //IBrandDal ın durma sebebi DTO joinleme vs olursa bu kısmı ilgilendiren fonksiyonları
+    //IBrandDal kısmına yazıp buraya iplemente edebiliriz.
     public class EfBrandDal : EfEntityRepositoryBase<Brand, RentCarContext>, IBrandDal
     {
        
