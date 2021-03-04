@@ -21,29 +21,29 @@ namespace Business.Concrete
         public IResult Add(Brand brand)
         {
             _brandDal.Add(brand);
-            return new ErrorResult(Messages.ProductNameInvalid);
+            return new ErrorResult(Messages.CarNameInvalid);
         }
 
         public IResult Delete(Brand brand)
         {
             _brandDal.Delete(brand);
-            return new SuccessResult(Messages.ProductDeleted);
+            return new SuccessResult(Messages.CarDeleted);
         }
 
         public IDataResult<List<Brand>> GetAll()
         {
-            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(),Messages.ProductsListed);
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(),Messages.CarsListed);
         }
 
         public IDataResult<Brand> GetById(int brandId)
         {
-            return new ErrorDataResult<Brand>(_brandDal.Get(b => b.BrandId == brandId),Messages.ProductsNotListed);
+            return new ErrorDataResult<Brand>(_brandDal.Get(b => b.BrandId == brandId),Messages.CarsNotListed);
         }
 
         public IResult Update(Brand brand)
         {
             _brandDal.Update(brand);
-            return new ErrorResult(Messages.ProductNotUpdated);
+            return new ErrorResult(Messages.CarNotUpdated);
         }
     }
 }
