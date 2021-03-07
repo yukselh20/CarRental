@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    class RentalManager : IRentalService
+    public class RentalManager : IRentalService
     {
         IRentalDal _rentalDal;
         public RentalManager(IRentalDal rentalDal)
@@ -44,7 +44,7 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
-        public IResult Ubdate(Rental rental)
+        public IResult Update(Rental rental)
         {
             throw new NotImplementedException();
         }

@@ -37,7 +37,7 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
-        public IResult Ubdate(Customer customer)
+        public IResult Update(Customer customer)
         {
             throw new NotImplementedException();
         }
