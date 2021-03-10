@@ -1,11 +1,16 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Business.Concrete
@@ -19,19 +24,32 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-            if(car.CarName.Length >= 2 && car.DailyPrice > 0)
-            {
-                _carDal.Add(car);
-                return new SuccessResult(Messages.CarAdded);
-            }
-            else
-            {
-                return new ErrorResult(Messages.CarNameInvalid);
-            }
+            //var context = new ValidationContext<Car>(car);// Gelen Car için Car türünde Doğrulama Context'i oluştur.
+            //CarValidator carValidator = new CarValidator();// Ne ile doğrulanacak
+            //var result = carValidator.Validate(context);// CarValidator contexti doğrulayacak
+
+            //if (!result.IsValid)
+            //{
+            //    throw new ValidationException(result.Errors);
+            //}
+            //if(car.CarName.Length >= 2 && car.DailyPrice > 0)
+            //{
+            //    _carDal.Add(car);
+            //     return new SuccessResult(Messages.CarAdded);
+            //}
+            //else
+            //{
+            //    return new ErrorResult(Messages.CarNameInvalid);
+            //}
+            
+            _carDal.Add(car);
+            return new SuccessResult(Messages.CarAdded);
         }
 
+        [ValidationAspect(typeof(CarValidator))]
         public IDataResult<List<Car>> GetAll()
         {
             //iş kodları if else falan filan 
